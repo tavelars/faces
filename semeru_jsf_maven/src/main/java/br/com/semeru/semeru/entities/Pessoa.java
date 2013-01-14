@@ -6,47 +6,42 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
-@Table(name="PESSOA")
-public class Pessoa implements Serializable{
-    
+@Table(name = "PESSOA")
+public class Pessoa implements Serializable {
+
     public Pessoa() {
     }
-    
     private static long serialVersionUID;
-    
     @Id
     @GeneratedValue
-    @Column(name="ID_PESSOA", nullable=false)
+    @Column(name = "ID_PESSOA", nullable = false)
     private Integer idPessoa;
-    
-    @Column(name="NOME", nullable=false, length=200)
+    @Column(name = "NOME", nullable = false, length = 200)
     private String nome;
-    
-    @Column(name="EMAIL", nullable=false, length=200)
+    @Column(name = "EMAIL", nullable = false, length = 200)
     private String email;
-    
-    @Column(name="TELEFONE", nullable=false, length=15)
+    @Column(name = "TELEFONE", nullable = false, length = 15)
     private String telefone;
-    
-    @Column(name="CPF", nullable=false, length=12)
+    @Column(name = "CPF", nullable = false, length = 12)
     private String cpf;
-    
     @Temporal(TemporalType.DATE)
-    @Column(name="DATA_NASCIMENTO", nullable=false)
+    @Column(name = "DATA_NASCIMENTO", nullable = false)
     private Date dataNascimento;
-    
     @Temporal(TemporalType.DATE)
-    @Column(name="DATA_CADASTRO", nullable=false)
+    @Column(name = "DATA_CADASTRO", nullable = false)
     private Date dataCadastro;
-    
-    
-    
 
+    @ManyToOne(optional=false)
+    @ForeignKey(name="PESSOA_SEXO")
+    private Pessoa pessoa;
+    
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -111,6 +106,14 @@ public class Pessoa implements Serializable{
         this.dataCadastro = dataCadastro;
     }
 
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+        
     @Override
     public int hashCode() {
         int hash = 3;
@@ -132,7 +135,4 @@ public class Pessoa implements Serializable{
         }
         return true;
     }
-    
-    
-    
 }
