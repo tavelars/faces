@@ -18,7 +18,7 @@ public class Pessoa implements Serializable {
 
     public Pessoa() {
     }
-    private static long serialVersionUID;
+    private static long serialVersionUID = 1L;
     @Id
     @GeneratedValue
     @Column(name = "ID_PESSOA", nullable = false)

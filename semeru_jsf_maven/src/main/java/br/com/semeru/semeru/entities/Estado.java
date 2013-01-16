@@ -1,11 +1,15 @@
 package br.com.semeru.semeru.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
 @Table(name = "ESTADO")
@@ -13,13 +17,18 @@ public class Estado implements Serializable {
 
     public Estado() {
     }
-    private static long serialVersionUID;
+    private static long serialVersionUID  = 1L;
     @Id
     @GeneratedValue
     @Column(name = "ID_ESTADO")
     private Integer idEstado;
     @Column(name = "DESCRICAO", nullable = false, unique = true, length = 500)
     private String descricao;
+    
+    @OneToMany(mappedBy="ESTADO", fetch=FetchType.LAZY)
+    @ForeignKey(name="ESTADO_ENDERECO")
+    private List<Endereco> enderecos;
+    
 
     public Integer getIdEstado() {
         return idEstado;
@@ -45,6 +54,15 @@ public class Estado implements Serializable {
         Estado.serialVersionUID = serialVersionUID;
     }
 
+    public List<Endereco> getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 3;

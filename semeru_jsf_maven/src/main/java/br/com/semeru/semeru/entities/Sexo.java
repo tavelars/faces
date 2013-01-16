@@ -17,7 +17,7 @@ public class Sexo implements Serializable {
 
     public Sexo() {
     }
-    private static long serialVersionUID;
+    private static long serialVersionUID = 1L;
     @Id
     @GeneratedValue
     @Column(name = "ID_SEXO")
