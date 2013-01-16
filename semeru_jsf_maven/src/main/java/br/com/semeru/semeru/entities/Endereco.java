@@ -3,9 +3,14 @@ package br.com.semeru.semeru.entities;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
 @Table(name = "ENDERECO")
@@ -17,7 +22,7 @@ public class Endereco implements Serializable {
     private static long serialVersionUID = 1L;
     @Id
     @GeneratedValue
-    @Column(name = "ID_ENDERECO", nullable=false)
+    @Column(name="ID_ENDERECO", nullable=false)
     private Integer idEndereco;
     
     @Column(name="BAIRRO", length=80)
@@ -34,7 +39,32 @@ public class Endereco implements Serializable {
     
     @Column(name="COMPLEMENTO", nullable=false, length=50)
     private String complemento;
-
+    
+    @OneToOne(optional=true, fetch= FetchType.LAZY)
+    @ForeignKey(name="PESSOA_ENDERECO")
+    @JoinColumn(name="ID_PESSOA", referencedColumnName="ID_PESSOA")
+    private Pessoa pessoa;
+    
+    @ManyToOne(optional=false, fetch= FetchType.LAZY)
+    @ForeignKey(name="ENDERECO_TIPO_LOGR")
+    @JoinColumn(name="ID_TIPO_LOGRADOURO", referencedColumnName="ID_TIPO_LOGRADOURO")
+    private TipoLogradouro tipoLogradouro;
+    
+    @ManyToOne(optional=false, fetch= FetchType.LAZY)
+    @ForeignKey(name="ENDERECO_CIDADE")
+    @JoinColumn(name="ID_CIDADE", referencedColumnName="ID_CIDADE")
+    private Cidade cidade;
+    
+    @ManyToOne(optional=false, fetch= FetchType.LAZY)
+    @ForeignKey(name="ENDERECO_ESTADO")
+    @JoinColumn(name="ID_ESTADO", referencedColumnName="ID_ESTADO")
+    private Cidade estado;
+    
+    @ManyToOne(optional=false, fetch= FetchType.LAZY)
+    @ForeignKey(name="ENDERECO_TIPO_END")
+    @JoinColumn(name="ID_TIPO_ENDERECO", referencedColumnName="ID_TIPO_ENDERECO")
+    private Cidade tipoEndereco;
+    
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -90,7 +120,46 @@ public class Endereco implements Serializable {
     public void setComplemento(String complemento) {
         this.complemento = complemento;
     }
-       
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    public TipoLogradouro getTipoLogradouro() {
+        return tipoLogradouro;
+    }
+
+    public void setTipoLogradouro(TipoLogradouro tipoLogradouro) {
+        this.tipoLogradouro = tipoLogradouro;
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
+    public Cidade getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Cidade estado) {
+        this.estado = estado;
+    }
+
+    public Cidade getTipoEndereco() {
+        return tipoEndereco;
+    }
+
+    public void setTipoEndereco(Cidade tipoEndereco) {
+        this.tipoEndereco = tipoEndereco;
+    }
 
     @Override
     public int hashCode() {

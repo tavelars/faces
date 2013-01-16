@@ -28,7 +28,7 @@ public class TipoEndereco implements Serializable {
     private String descricao;
     
     @OneToMany(mappedBy="TIPO_ENDERECO", fetch=FetchType.LAZY)
-    @ForeignKey(name="TIPO_END_ENDERECO")
+    @ForeignKey(name="ENDERECO_TIPO_END")
     private List<Endereco> enderecos;
 
     public static long getSerialVersionUID() {

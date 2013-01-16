@@ -29,7 +29,7 @@ public class TipoLogradouro implements Serializable {
     private String descricao;
     
     @OneToMany(mappedBy="TIPO_LOGRADOURO", fetch=FetchType.LAZY)
-    @ForeignKey(name="TIPO_LOGR_ENDERECO")
+    @ForeignKey(name="ENDERECO_TIPO_LOGR")
     private List<Endereco> enderecos;
 
     public static long getSerialVersionUID() {

@@ -2,11 +2,17 @@ package br.com.semeru.semeru.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.faces.bean.ReferencedBean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -38,10 +44,16 @@ public class Pessoa implements Serializable {
     @Column(name = "DATA_CADASTRO", nullable = false)
     private Date dataCadastro;
 
+    @OneToOne(mappedBy="PESSOA", fetch=FetchType.LAZY)
+    @ForeignKey(name="PESSOA_ENDERECO")
+    private Endereco endereco;
+    
     @ManyToOne(optional=false)
     @ForeignKey(name="PESSOA_SEXO")
-    private Pessoa pessoa;
-    
+    @JoinColumn(name="ID_SEXO", referencedColumnName="ID_SEXO")
+    private Sexo sexo;
+   
+      
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -106,14 +118,24 @@ public class Pessoa implements Serializable {
         this.dataCadastro = dataCadastro;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public Sexo getSexo() {
+        return sexo;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
     }
-        
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+   
+   
+                
     @Override
     public int hashCode() {
         int hash = 3;
