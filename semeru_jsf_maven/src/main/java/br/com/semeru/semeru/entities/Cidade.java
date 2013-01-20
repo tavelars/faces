@@ -19,14 +19,17 @@ public class Cidade implements Serializable{
     }
         
     private static long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue
-    @Column(name = "ID_CIDADE")
+    @Column(name = "ID_CIDADE", nullable=false)
     private Integer idCidade;
+    
     @Column(name = "DESCRICAO", nullable = false, unique = true, length = 150)
     private String descricao;
-    @OneToMany(mappedBy="CIDADE", fetch=FetchType.LAZY)
-    @ForeignKey(name="ENDERECO_CIDADE")
+   
+    @OneToMany(mappedBy="cidade", fetch=FetchType.LAZY)
+    @ForeignKey(name="END_CIDADE")
     private List<Endereco> enderecos;
     
 

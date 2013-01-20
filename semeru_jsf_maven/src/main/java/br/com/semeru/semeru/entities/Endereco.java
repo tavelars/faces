@@ -50,20 +50,20 @@ public class Endereco implements Serializable {
     @JoinColumn(name="ID_TIPO_LOGRADOURO", referencedColumnName="ID_TIPO_LOGRADOURO")
     private TipoLogradouro tipoLogradouro;
     
-    @ManyToOne(optional=false, fetch= FetchType.LAZY)
-    @ForeignKey(name="ENDERECO_CIDADE")
+    @ManyToOne(optional=false, fetch=FetchType.LAZY)
+    @ForeignKey(name="END_CIDADE")
     @JoinColumn(name="ID_CIDADE", referencedColumnName="ID_CIDADE")
     private Cidade cidade;
     
     @ManyToOne(optional=false, fetch= FetchType.LAZY)
     @ForeignKey(name="ENDERECO_ESTADO")
     @JoinColumn(name="ID_ESTADO", referencedColumnName="ID_ESTADO")
-    private Cidade estado;
+    private Estado estado;
     
     @ManyToOne(optional=false, fetch= FetchType.LAZY)
     @ForeignKey(name="ENDERECO_TIPO_END")
     @JoinColumn(name="ID_TIPO_ENDERECO", referencedColumnName="ID_TIPO_ENDERECO")
-    private Cidade tipoEndereco;
+    private TipoEndereco tipoEndereco;
     
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -145,19 +145,19 @@ public class Endereco implements Serializable {
         this.cidade = cidade;
     }
 
-    public Cidade getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(Cidade estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
-    public Cidade getTipoEndereco() {
+    public TipoEndereco getTipoEndereco() {
         return tipoEndereco;
     }
 
-    public void setTipoEndereco(Cidade tipoEndereco) {
+    public void setTipoEndereco(TipoEndereco tipoEndereco) {
         this.tipoEndereco = tipoEndereco;
     }
 

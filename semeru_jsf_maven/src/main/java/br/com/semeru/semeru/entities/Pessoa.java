@@ -44,7 +44,7 @@ public class Pessoa implements Serializable {
     @Column(name = "DATA_CADASTRO", nullable = false)
     private Date dataCadastro;
 
-    @OneToOne(mappedBy="PESSOA", fetch=FetchType.LAZY)
+    @OneToOne(mappedBy="pessoa", fetch=FetchType.LAZY)
     @ForeignKey(name="PESSOA_ENDERECO")
     private Endereco endereco;
     
