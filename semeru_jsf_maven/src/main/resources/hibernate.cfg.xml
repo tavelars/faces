@@ -29,17 +29,17 @@
         <!-- Executa no máximo 80 sequencias por sessão -->
         <property name="c3p0.idle_test_period">300</property>
      
-        <!-- LISTA DE ENTIDADES -->
-        <mapping class="br.com.semeru.semeru.model.entities.Cidade"/>        
-        <mapping class="br.com.semeru.semeru.model.entities.Endereco"/>      
-        <mapping class="br.com.semeru.semeru.model.entities.Estado"/>      
-        <mapping class="br.com.semeru.semeru.model.entities.Pessoa"/>               
-        <mapping class="br.com.semeru.semeru.model.entities.Sexo"/>
-        <mapping class="br.com.semeru.semeru.model.entities.TipoEndereco"/>
-        <mapping class="br.com.semeru.semeru.model.entities.TipoLogradouro"/>
+        <!-- lista de entidades -->
+        <mapping class="br.com.semeru.semeru.entities.Cidade"/>        
+        <mapping class="br.com.semeru.semeru.entities.Endereco"/>      
+        <mapping class="br.com.semeru.semeru.entities.Estado"/>      
+        <mapping class="br.com.semeru.semeru.entities.Pessoa"/>               
+        <mapping class="br.com.semeru.semeru.entities.Sexo"/>
+        <mapping class="br.com.semeru.semeru.entities.TipoEndereco"/>
+        <mapping class="br.com.semeru.semeru.entities.TipoLogradouro"/>
         
         
-        
+               
     </session-factory>
     
 </hibernate-configuration>
