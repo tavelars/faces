@@ -8,17 +8,15 @@
      
         <!-- CONFIGURAÇÕES DE CONEXÃO COM O BD -->
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property><!-- Defino o driver de conexão com o bd -->
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/semeru_jsf_maven_db</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/semeru_jsf_maven_db?createDatabaseIfNotExist=true</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.password">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <!--property name="hibernate.hbm2ddl.auto">create</property-->
         <property name="hibernate.hbm2ddl.auto">update</property>
-        
         <!-- HABILITA A EXIBIÇÃO DO SQL GERADO PELO HIBERNATE E FORMATA-O -->
-        
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
-        
         <!-- Numero minimo de conexoes com banco de dados -->
         <property name="c3p0.min_size">1</property>
         <!-- Numero máximo de conexoes com banco de dados -->
