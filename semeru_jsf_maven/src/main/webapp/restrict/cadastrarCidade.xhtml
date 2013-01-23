@@ -54,6 +54,23 @@
                        
                     </p:column>
                     
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Ações"/>
+                        </f:facet>
+                        <p:commandButton value="Editar" image="ui-icon ui-icon-pencil" 
+                                         process="@this" update=":tbv1:formCidade">
+                            <f:setPropertyActionListener target="#{mbCidade.cidade}"
+                                value="#{cidade}"/>
+                        </p:commandButton>
+                        <p:commandButton value="Remover" action="#{mbCidade.deleteCidade}" 
+                                         image="ui-icon ui-icon-close" 
+                                         process="@this" update="@form" >
+                            <f:setPropertyActionListener target="#{mbCidade.cidade}"
+                                value="#{cidade}"/>
+                        </p:commandButton>
+                    </p:column>
+                    
                     
                 </p:dataTable>
             </h:form>

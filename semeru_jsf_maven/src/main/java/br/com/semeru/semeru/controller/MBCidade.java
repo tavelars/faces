@@ -5,6 +5,7 @@ import br.com.semeru.semeru.model.dao.HibernateDAO;
 import br.com.semeru.semeru.model.dao.InterfaceDAO;
 import br.com.semeru.semeru.util.FacesContextUtil;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -19,7 +20,7 @@ public class MBCidade implements Serializable {
     }
     private static long serialVersionUID = 1L;
     private Cidade cidade;
-    private List<Cidade> cidades;
+    private List<Cidade> cidades = new ArrayList<Cidade>();
 
     private InterfaceDAO<Cidade> getCidadeDAO() {
         InterfaceDAO<Cidade> cidadeDAO =
@@ -43,7 +44,7 @@ public class MBCidade implements Serializable {
 
     private String refreshCidades() {
         cidade = new Cidade();
-        return "//restrict/cadastrar_cidade.faces";
+        return editarCidade();
     }
 
     private void insertCidade() {
