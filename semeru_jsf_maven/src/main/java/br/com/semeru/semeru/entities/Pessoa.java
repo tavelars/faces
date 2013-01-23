@@ -119,6 +119,9 @@ public class Pessoa implements Serializable {
     }
 
     public Sexo getSexo() {
+        if(sexo == null){
+            sexo = new Sexo();
+        }
         return sexo;
     }
 

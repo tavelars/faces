@@ -42,9 +42,9 @@ public class MBCidade implements Serializable {
         return null;
     }
 
-    private String refreshCidades() {
+    public void refreshCidades() {
         cidade = new Cidade();
-        return editarCidade();
+        //return editarCidade();
     }
 
     private void insertCidade() {

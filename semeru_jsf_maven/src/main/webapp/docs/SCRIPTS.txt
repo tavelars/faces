@@ -1,0 +1,2 @@
+INSERT INTO semeru_jsf_maven_db.sexo (DESCRICAO) VALUES ('MASCULINO')
+INSERT INTO semeru_jsf_maven_db.sexo (DESCRICAO) VALUES ('FEMININO')

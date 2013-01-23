@@ -28,8 +28,8 @@
                             </p:panelGrid>   
                             
                             <p:panel>
-                                <p:commandButton value="Salvar" action="#{mbCidade.adicionarCidade}" image="ui-icon ui-icon-disk" update="@form :formTable" />
-                                <p:commandButton value="Cancelar" actionListener="#{mbCidade.refreshCidades}" image="ui-icon ui-icon-close" update="@form" />
+                                <p:commandButton value="Salvar" action="#{mbCidade.adicionarCidade}" image="ui-icon ui-icon-disk"  update="@form :formTable" />
+                                <p:commandButton value="Cancelar" action="#{mbCidade.refreshCidades}" image="ui-icon ui-icon-close" update="formCidade, @form :formTable" />
                             </p:panel>
                     </h:form>
                 </p:tab>
