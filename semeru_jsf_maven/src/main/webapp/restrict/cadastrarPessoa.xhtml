@@ -13,7 +13,7 @@
        
         <p:fieldset legend="Cadastar Pessoas">
             <br></br>
-            <h:form> 
+            <h:form id="form1"> 
                  <p:wizard nextLabel="Próxima" backLabel="Anterior">
                      
                      <p:tab title="Informações Básicas" id="infoPessoal">
@@ -63,10 +63,7 @@
                                            
                                     </h:panelGrid>
                             </p:panel>
-                            <p:panel>
-                                <p:commandButton value="Salvar" action="#{mbPessoa.addPessoa}" image="ui-icon ui-icon-disk"  update="@form" />
-                                <p:commandButton value="Cancelar" action="#{mbPessoa.refreshPessoa}" image="ui-icon ui-icon-close" update="@form" />
-                            </p:panel>
+                            
                      </p:tab>  
                      
                      <p:tab title="Informações de Endereço" id="infoEndereco">
@@ -86,19 +83,38 @@
                                                <f:selectItems value="#{bbEstado.estados}" var="estado" itemValue="#{estado.idEstado}" itemLabel="#{estado.descricao}"/>
                                            </p:selectOneMenu>
                                            
+                                           <h:outputLabel for="logrEnd" value="Tipo Logradouro" />
+                                           <p:selectOneMenu id="logrEnd" value="#{mbPessoa.endereco.tipoLogradouro.idTipoLogradouro}">
+                                               <f:selectItems value="#{bbTipoLogradouro.tipoLogradouros}" var="tipoLogr" 
+                                                              itemValue="#{tipoLogr.idTipoLogradouro}" itemLabel="#{tipoLogr.descricao}"/>
+                                           </p:selectOneMenu>
+                                           
+                                           
+                                           <h:outputLabel for="nomelogradouro" value="Logradouro"/>
+                                           <p:inputText id="nomelogradouro" size="75" value="#{mbPessoa.endereco.nomeLogradouro}" 
+                                             required="true" requiredMessage="É obrigatório o preenchimento do campo [Logradouro]"
+                                             onkeyup="this.value = this.value.toUpperCase()"/>
+                                           
+                                           
+                                           <h:outputLabel for="cep" value="CEP"/>
+                                           <p:inputMask id="cep" size="10" value="#{mbPessoa.endereco.cep}" mask="99999-999" required="true" requiredMessage="É obrigatório o preenchimento do campo [CEP]"/> 			
+                                           <h:outputLabel for="numero" value="Numero"/>
+                                           <p:inputText id="numero" size="8" value="#{mbPessoa.endereco.numero}" required="true" requiredMessage="É obrigatório o preenchimento do campo [Número]"/>	
+                                           <h:outputLabel for="complemento" value="Complemento"/>
+                                           <p:inputText id="complemento" size="20" value="#{mbPessoa.endereco.complemento}" onkeyup="this.value = this.value.toUpperCase()"/>
+                                           
                                            <h:outputLabel for="tipoEnd" value="Tipo Endereço" />
                                            <p:selectOneMenu id="tipoEnd" value="#{mbPessoa.endereco.tipoEndereco.idTipoEndereco}">
                                                <f:selectItems value="#{bbTipoEndereco.tipoEnderecos}" var="tipoEnder" 
                                                               itemValue="#{tipoEnder.idTipoEndereco}" itemLabel="#{tipoEnder.descricao}"/>
                                            </p:selectOneMenu>
                                            
-                                           <h:outputLabel for="logrEnd" value="Tipo Logradouro" />
-                                           <p:selectOneMenu id="logrEnd" value="#{mbPessoa.endereco.tipoLogradouro.idTipoLogradouro}">
-                                               <f:selectItems value="#{bbTipoLogradouro.tipoLogradouros}" var="tipoLogr" 
-                                                              itemValue="#{tipoLogr.idTipoLogradouro}" itemLabel="#{tipoLogr.descricao}"/>
-                                           </p:selectOneMenu>
-
                                     </h:panelGrid>
+                            </p:panel>
+                         
+                             <p:panel>
+                                <p:commandButton value="Salvar" action="#{mbPessoa.addPessoa}" image="ui-icon ui-icon-disk"  update="@form" />
+                                <p:commandButton value="Cancelar" action="#{mbPessoa.refreshPessoa}" image="ui-icon ui-icon-close" update="@form" />
                             </p:panel>
                     </p:tab> 
                      

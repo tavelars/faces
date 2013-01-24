@@ -47,8 +47,11 @@ public class MBPessoa implements Serializable {
         return editarPessoa();
     }
 
-    private String editarPessoa() {
-        return "//restrict/cadastrarPessoa.faces";
+    public String editarPessoa() {
+        Pessoa pessoa2 = pessoa;
+        Endereco ende2 = endereco;
+        
+        return "//restrict/cadastrarPessoa.faces?faces-redirect=true&includeViewParams=true";
     }
 
     public String addPessoa() {
@@ -64,12 +67,15 @@ public class MBPessoa implements Serializable {
 
     private void insertPessoa() {
         getPessoaDAO().save(pessoa);
+        endereco.setPessoa(pessoa);
+        getEnderecoDAO().save(endereco);
         FacesContext.getCurrentInstance()
                 .addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso", ""));
     }
 
     private void updatePessoa() {
         getPessoaDAO().update(pessoa);
+        getEnderecoDAO().update(endereco);
         FacesContext.getCurrentInstance()
                 .addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Atualização efetuada com sucesso", ""));
     }

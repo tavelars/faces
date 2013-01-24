@@ -20,28 +20,6 @@ body {
    
 }
 
-#wrapper { padding-bottom:10px !important;
-            width:auto;
-           background:url(../images/dashboard/bg_content_bottom.gif) center bottom no-repeat;
-         }
-
-#logo { 
-        width:auto;
-        height:50px;
-        font-size:24px; 
-        font-style:italic; 
-        font-weight:normal; 
-        color:white; 
-        line-height:69px; 
-      }
-
-#user_tools {
-	background-image: url(../images/dashboard/bg_usertools_right.gif);  right top no-repeat;
-	height:34px;
-	padding-right:9px;
-	float:right;
-}
-
 #topo h1{
    width:238px;
    height:34px;
