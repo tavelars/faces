@@ -130,6 +130,9 @@ public class Endereco implements Serializable {
     }
 
     public TipoLogradouro getTipoLogradouro() {
+        if(tipoLogradouro == null){
+            tipoLogradouro = new TipoLogradouro();
+        }
         return tipoLogradouro;
     }
 
@@ -138,6 +141,9 @@ public class Endereco implements Serializable {
     }
 
     public Cidade getCidade() {
+        if(cidade == null){
+            cidade = new Cidade();
+        }
         return cidade;
     }
 
@@ -146,6 +152,9 @@ public class Endereco implements Serializable {
     }
 
     public Estado getEstado() {
+        if(estado == null){
+            estado = new Estado();
+        }
         return estado;
     }
 
@@ -154,6 +163,9 @@ public class Endereco implements Serializable {
     }
 
     public TipoEndereco getTipoEndereco() {
+        if(tipoEndereco == null){
+            tipoEndereco = new TipoEndereco();
+        }
         return tipoEndereco;
     }
 

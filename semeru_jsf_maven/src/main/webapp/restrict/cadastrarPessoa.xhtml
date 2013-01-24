@@ -73,7 +73,30 @@
                             <p:panel header="Dados de Endereço">
                                 <p:growl id="msgP1"/>
                                     <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="gridP1">
-
+                                           
+                                           
+                                           
+                                           <h:outputLabel for="cidadeEnd" value="Cidade" />
+                                           <p:selectOneMenu id="cidadeEnd" value="#{mbPessoa.endereco.cidade.idCidade}">
+                                               <f:selectItems value="#{bbCidade.cidades}" var="cidade" itemValue="#{cidade.idCidade}" itemLabel="#{cidade.descricao}"/>
+                                           </p:selectOneMenu>
+                                           
+                                           <h:outputLabel for="estadoEnd" value="Estado" />
+                                           <p:selectOneMenu id="estadoEnd" value="#{mbPessoa.endereco.estado.idEstado}">
+                                               <f:selectItems value="#{bbEstado.estados}" var="estado" itemValue="#{estado.idEstado}" itemLabel="#{estado.descricao}"/>
+                                           </p:selectOneMenu>
+                                           
+                                           <h:outputLabel for="tipoEnd" value="Tipo Endereço" />
+                                           <p:selectOneMenu id="tipoEnd" value="#{mbPessoa.endereco.tipoEndereco.idTipoEndereco}">
+                                               <f:selectItems value="#{bbTipoEndereco.tipoEnderecos}" var="tipoEnder" 
+                                                              itemValue="#{tipoEnder.idTipoEndereco}" itemLabel="#{tipoEnder.descricao}"/>
+                                           </p:selectOneMenu>
+                                           
+                                           <h:outputLabel for="logrEnd" value="Tipo Logradouro" />
+                                           <p:selectOneMenu id="logrEnd" value="#{mbPessoa.endereco.tipoLogradouro.idTipoLogradouro}">
+                                               <f:selectItems value="#{bbTipoLogradouro.tipoLogradouros}" var="tipoLogr" 
+                                                              itemValue="#{tipoLogr.idTipoLogradouro}" itemLabel="#{tipoLogr.descricao}"/>
+                                           </p:selectOneMenu>
 
                                     </h:panelGrid>
                             </p:panel>

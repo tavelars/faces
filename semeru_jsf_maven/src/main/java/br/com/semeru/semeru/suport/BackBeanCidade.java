@@ -9,7 +9,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-@ManagedBean(name="cidade")
+@ManagedBean(name="bbCidade")
 @RequestScoped
 public class BackBeanCidade implements Serializable {
     

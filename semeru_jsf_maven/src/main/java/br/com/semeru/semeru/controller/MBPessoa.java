@@ -95,10 +95,14 @@ public class MBPessoa implements Serializable {
     }
 
     public void setEnderecos(List<Endereco> enderecos) {
+        
         this.enderecos = enderecos;
     }
 
     public Pessoa getPessoa() {
+        if(pessoa == null){
+            pessoa = new Pessoa();
+        }
         return pessoa;
     }
 
@@ -107,6 +111,9 @@ public class MBPessoa implements Serializable {
     }
 
     public Endereco getEndereco() {
+        if(endereco == null){
+            endereco = new Endereco();
+        }
         return endereco;
     }
 
